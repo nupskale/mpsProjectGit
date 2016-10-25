@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC-hQIJZe_BzvYqZElvng_BhYDB-R2mZEE",
+        authDomain: "smartplanner-1dde8.firebaseapp.com",
+        databaseURL: "https://smartplanner-1dde8.firebaseio.com",
+        storageBucket: "smartplanner-1dde8.appspot.com",
+        messagingSenderId: "374277615911"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="smartplanner">
+    
+    <ion-nav-view></ion-nav-view>
+    
+    <!-- Templates -->
+    <script type="text/ng-template" id="login.html">
+      <ion-view view-title="Login">
+        <ion-content scroll="false">
+          <div ng-controller="loginCtrl">          
+              <div class="top-content row">
+                <div class="app-copy col col-top">
+                  <h1 class="app-title">Smart Planner</h1>
+                  <p class="app-tagline">
+                      Want to be on top of your assignments? Procrastinate the right way!
+                  </p>
+                  <div class="app-logo-container">
+                    <img class="app-logo" src="img/app-logo.png" alt="app-logo">
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-content row google-sign-in">
+                <div class="col col-bottom">
+                  <a class="button-positive button button-block" ng-click="signin()">
+                    <span class="btn-copy">Sign in with Google</span>
+                  </a>
+                </div>
+              </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script type="text/ng-template" id="eventlist.html">
+      <ion-view view-title="Eventlist">
+        <ion-content>
+          <div class="bar bar-header bar-dark events-header">
+            <h1 class="title">Events View</h1>
+            <button class="button button-light" ng-click="logout()">Logout</button>
+          </div>
+          <ion-list>
+              <ion-checkbox ng-repeat="todo in listtodo">
+                {{todo.name}}
+              </ion-checkbox>
+          </ion-list>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>

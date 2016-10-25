@@ -1,0 +1,25 @@
+/* Empty. Add your own CSS if you like */
+body{
+	background-color: #fefefe;
+}
+h1.app-title{
+	text-align: center;
+	padding: 20px 0 10px 0;
+}
+.app-tagline{
+	text-align: center;
+}
+.app-logo-container{
+	text-align: center;
+	margin-top: 30px;
+}
+.app-logo{
+	text-align: center;
+}
+.google-sign-in{
+	position: absolute;
+	bottom: 0;
+}
+.events-header{
+	position: static;
+}
